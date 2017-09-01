@@ -26,15 +26,29 @@ vectorAdd(const float *A, const float *B, float *C, float *D, int numElements)
 	{
 
 	float tempA = A[i]*A[i];
-	float tempB = 1/(D[i]*D[i]);
-        C[i] = (tempA*(5*tempA + 2)+ B[i])*tempB;
+	float tempD = 1/(D[i]*D[i]);
+        C[i] = (tempA*(5*tempA + 2)+ B[i])*tempD;
 
 	}
 
 
     // Insert your optimized code above
 #endif
+#if OPT==2
+    // Insert your optimized code below
 
+	if (i < numElements)
+	{
+
+	float tempA = A[i]*A[i];
+	float tempD = D[i]*D[i];
+        C[i] = (tempA*(5*tempA + 2)+ B[i])/tempD;
+
+	}
+
+
+    // Insert your optimized code above
+#endif
 
 #if OPT==0
     if (i < numElements)
